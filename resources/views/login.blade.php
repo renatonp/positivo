@@ -27,7 +27,6 @@ $(document).ready(function(){
     <form id="formulario">
     @csrf        
     <div class="container col-lg-6" align="center">
-        <div class="row col-lg-6" align="center"><h2>Bem-vindo(a) {{ $usuario }}.</h2></div><br />
         <div class="row">
             <div class="col-lg-3" align="center"><button type="button" id="btn_cadastro_aluno" class="btn btn-primary">Cadastrar Aluno</button></div>
             @if($perfil == 1 || $perfil == 2)

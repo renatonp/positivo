@@ -15,6 +15,10 @@ class LoginController extends Controller
             foreach($dados_usuario as $dados);
             $usuario = $dados->usuario;
             $perfil = $dados->perfil;
+
+            $usuario = $request->session()->put('usuario',$dados->usuario );
+            $perfil = $request->session()->put('perfil', $dados->perfil);
+
             return View::make('login',compact('perfil','usuario'));
         }
     }

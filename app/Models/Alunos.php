@@ -9,6 +9,20 @@ use Illuminate\Support\Facades\View;
 class Alunos extends Model
 {
 	public static function cadastrar($dados){
+		$data_nascimento = substr($dados->data_nascimento,6,4).'-'.substr($dados->data_nascimento,3,2).'-'.substr($dados->data_nascimento,0,2);
+		if($dados->segmento == "Infantil"){
+			$segmento=1;
+		}
+		if($dados->segmento == "Anos Iniciais"){
+			$segmento=2;
+		}
+		if($dados->segmento == "Anos Finais"){
+			$segmento=3;
+		}
+		if($dados->segmento == "Ensino Médio"){
+			$segmento=4;
+		}
+
 		$alunos = new Alunos();
 		$alunos->tipo_endereco = $dados->tipo_endereco;
 		$alunos->rua = $dados->rua;
@@ -16,10 +30,10 @@ class Alunos extends Model
 		$alunos->numero = $dados->numero;
 		$alunos->complemento = $dados->complemento;
 		$alunos->serie = $dados->serie;
-		$alunos->segmento = $dados->segmento;
+		$alunos->segmento = $segmento;
 		$alunos->matricula = $dados->matricula;
 		$alunos->nome_completo = $dados->nome_completo;
-        $alunos->data_nascimento = $dados->data_nascimento;
+        $alunos->data_nascimento = $data_nascimento;
         $alunos->nome_pai = $dados->nome_pai;
         $alunos->nome_mae = $dados->nome_mae;
 		$alunos->save();

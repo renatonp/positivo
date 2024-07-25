@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Alunos;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\View;
 
 class AlunoController extends Controller
@@ -15,6 +16,9 @@ class AlunoController extends Controller
 
     public function cadastrar(Request $request){
         Alunos::cadastrar($request);
+        $perfil = $request->session()->get('perfil');
+        $usuario = $request->session()->get('usuario');
+        return View::make('login',compact('perfil','usuario'));
     }
 
     public function listar(){

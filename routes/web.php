@@ -11,7 +11,7 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::post('/welcome', [LoginController::class, 'index'])->name('welcome');
+Route::post('/login', [LoginController::class, 'index'])->name('login');
 
 
 /* ROTAS ALUNO CONTROLLER*/
