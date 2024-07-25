@@ -10,7 +10,6 @@ class Alunos extends Model
 {
 	public static function cadastrar($dados){
 		$alunos = new Alunos();
-		print($dados->tipo_endereco);exit;
 		$alunos->tipo_endereco = $dados->tipo_endereco;
 		$alunos->rua = $dados->rua;
 		$alunos->cep = $dados->cep;
