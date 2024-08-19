@@ -26,7 +26,7 @@ $(document).ready(function(){
 </head>
 
 <body>
-<form>
+<form action="{{ Route('cadastrarTurma') }}" method="post">
 	<div class="container">
 		<div class="row alert alert-primary" role="alert"><div class="col-lg-12" align="center">Cadastro de Turma</div></div>
         <p><div class="col-lg-12" align="right"><input type="button" class="btn btn-success" value="Listagem de Turmas" onclick="listagemTurma()"></div><br>
